@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { MessageCircle, Scissors, TrendingUp, Zap, Clock, Target, Star } from 'lucide-react';
+import Header from './Header';
+import Footer from './Footer';
 
 const ClipVibeLanding = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -28,8 +30,10 @@ const ClipVibeLanding = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <Header />
+      
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center px-4">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20"></div>
         
         {/* Floating Elements */}
@@ -60,6 +64,12 @@ const ClipVibeLanding = () => {
             size="lg" 
             className="px-8 py-6 text-lg font-semibold clipvibe-gradient hover-glow transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: '0.4s' }}
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
           >
             Get Viral Now
             <Zap className="ml-2 h-5 w-5" />
@@ -68,7 +78,7 @@ const ClipVibeLanding = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 px-4">
+      <section id="how-it-works" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 scroll-reveal">
             How It <span className="clipvibe-gradient-text">Works</span>
@@ -115,7 +125,7 @@ const ClipVibeLanding = () => {
       </section>
 
       {/* Examples of Work Section */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section id="examples" className="py-20 px-4 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 scroll-reveal">
             <span className="clipvibe-gradient-text">Examples</span> of Work
@@ -140,7 +150,7 @@ const ClipVibeLanding = () => {
       </section>
 
       {/* Why Us Section */}
-      <section className="py-20 px-4">
+      <section id="why-us" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 scroll-reveal">
             Why <span className="clipvibe-gradient-text">Choose Us</span>
@@ -181,7 +191,7 @@ const ClipVibeLanding = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section id="testimonials" className="py-20 px-4 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 scroll-reveal">
             What <span className="clipvibe-gradient-text">Creators</span> Say
@@ -218,7 +228,7 @@ const ClipVibeLanding = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 px-4">
+      <section id="contact" className="py-20 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-8 scroll-reveal">
             Ready to Go <span className="clipvibe-gradient-text">Viral?</span>
@@ -251,6 +261,8 @@ const ClipVibeLanding = () => {
           </Card>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
